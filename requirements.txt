@@ -1,0 +1,22 @@
+# CrossGuard full local reproduction dependencies.
+#
+# For judge/TikTok inference only, use requirements-inference.txt instead.
+# GPU training installs the CUDA build of torch matching its own driver. For
+# CUDA 12.8:
+#     pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+#     pip install -r requirements.txt
+
+torch>=2.4
+torchvision>=0.19
+timm>=1.0.11          # DINOv2 ViT-L/14 + EVA02-L/14-448 weights
+peft>=0.13.0          # LoRA r=32 on attention + MLP
+pillow>=10.4
+numpy>=1.26
+pandas>=2.2
+pyarrow>=17
+imagehash>=4.3        # phash / dhash - shared with aigid/canon.py quarantine
+huggingface-hub>=0.25
+scikit-learn>=1.4     # AUROC, calibration, bootstrap CIs
+scipy>=1.11            # optional bias-probe DCT features
+requests>=2.32         # public ModelScope range/download helpers
+tqdm>=4.66

@@ -1,0 +1,147 @@
+{
+  "checkpoint": "/data/runs/ft_full_calibrated/best.pt",
+  "split": "test",
+  "weights_key": "swa",
+  "temperature": 0.8613269329071045,
+  "shipped_threshold": 0.8976333141326904,
+  "tta": true,
+  "cap": 0,
+  "n_views": 15,
+  "clean": {
+    "auroc": 0.9920831785391536,
+    "auroc_ci95": [
+      0.9914521618555021,
+      0.9927108811110026
+    ],
+    "average_precision": 0.9980668245349824,
+    "balanced_accuracy": 0.9424152381724331,
+    "tpr_at_shipped_threshold": 0.8937018415494006,
+    "fpr_at_shipped_threshold": 0.008871365204534253,
+    "brier": 0.04044826701283455,
+    "ece": 0.044490151702099676,
+    "n": 41729
+  },
+  "robustness": {
+    "cells": {
+      "jpeg_q90": 0.9922395917131561,
+      "jpeg_q70": 0.9912065627932656,
+      "jpeg_q50": 0.9889829737570293,
+      "jpeg_q30": 0.9847130663921907,
+      "blur_s0.5": 0.9921795465761336,
+      "blur_s1.0": 0.9900461233014985,
+      "blur_s2.0": 0.9774859254902624,
+      "resize_0.50x": 0.9892450657123746,
+      "resize_0.25x": 0.9728454688280164,
+      "noise_s0.02": 0.9905755875772502,
+      "noise_s0.05": 0.9867578011611217,
+      "noise_s0.10": 0.9740366337761811,
+      "jitter_20pct": 0.9895363838743363,
+      "crop_80pct": 0.9907453363764464
+    },
+    "macro_robust_auroc": 0.986471147666376,
+    "worst_cell": "resize_0.25x",
+    "worst_cell_auroc": 0.9728454688280164,
+    "clean_to_robust_degradation": 0.019237709711137252
+  },
+  "operating_points": {
+    "fpr_0.01": {
+      "target_fpr": 0.01,
+      "val_threshold": 0.9490764737129211,
+      "tpr_on_test": 0.8666587332282153,
+      "fpr_achieved_on_test": 0.005544603252833909,
+      "fpr_gap_vs_target": -0.0044553967471660915
+    },
+    "fpr_0.05": {
+      "target_fpr": 0.05,
+      "val_threshold": 0.3779403269290924,
+      "tpr_on_test": 0.9496325826317199,
+      "fpr_achieved_on_test": 0.03339083292262198,
+      "fpr_gap_vs_target": -0.01660916707737802
+    }
+  },
+  "held_out_axes": {
+    "unseen_diffusion": {
+      "slice": "unseen_diffusion",
+      "n": 20098,
+      "n_fake": 11982,
+      "n_real": 8116,
+      "auroc": 0.9962519966906167,
+      "auroc_ci95": [
+        0.9956705069514901,
+        0.996826524568971
+      ],
+      "note": "AUROC computed against the split's reals; the axis itself contributes fakes only",
+      "generators": [
+        "WildFake/Imagen",
+        "WildFake/VQDM"
+      ],
+      "n_fake_in_axis": 11982
+    },
+    "unseen_gan": {
+      "slice": "unseen_gan",
+      "n": 20062,
+      "n_fake": 11946,
+      "n_real": 8116,
+      "auroc": 0.9831012907021964,
+      "auroc_ci95": [
+        0.9817942505588438,
+        0.9843934842026099
+      ],
+      "note": "AUROC computed against the split's reals; the axis itself contributes fakes only",
+      "generators": [
+        "WildFake/GigaGAN",
+        "WildFake/starGAN"
+      ],
+      "n_fake_in_axis": 11946
+    },
+    "unseen_other": {
+      "slice": "unseen_other",
+      "n": 13939,
+      "n_fake": 5823,
+      "n_real": 8116,
+      "auroc": 0.9977519107917169,
+      "auroc_ci95": [
+        0.9972058741753081,
+        0.9982685165330257
+      ],
+      "note": "AUROC computed against the split's reals; the axis itself contributes fakes only",
+      "generators": [
+        "WildFake/MAGE"
+      ],
+      "n_fake_in_axis": 5823
+    },
+    "held_out_all": {
+      "slice": "held_out_all",
+      "n": 37867,
+      "n_fake": 29751,
+      "n_real": 8116,
+      "auroc": 0.9912651278819391,
+      "auroc_ci95": [
+        0.9905197710054567,
+        0.9919590885315757
+      ],
+      "note": null,
+      "n_fake_in_axis": 29751
+    }
+  },
+  "held_out_axes_note": null,
+  "named_rows": {
+    "thumbnail_regime_cifake": {
+      "slice": "thumbnail_regime_cifake",
+      "n": 3897,
+      "n_fake": 1940,
+      "n_real": 1957,
+      "auroc": 0.9971475643868956,
+      "auroc_ci95": [
+        0.995890541619036,
+        0.9982228413466857
+      ],
+      "note": "32x32 CIFAR-10 reals vs SD-1.4 synthetics upscaled to 448. \u00a76.4 expects a large drop: this is the extreme end of the grid's 0.25x downscale cell, and the model trains at full resolution. Reported as a bounded limitation, not a headline number."
+    }
+  },
+  "named_rows_absent": {
+    "tampered_slice_sid_label2": "no data: SID_Set label 2 was never ingested (canon.py:228); the build carries labels {0,1} only. The 'editing is out of scope' boundary is stated in \u00a76.6 as an untested limitation, not measured.",
+    "hard_reals": "no data: no screenshot/CGI/render source cleared \u00a73.1 licence review by the 29 Aug cutoff, so the slice was dropped per the pre-registered rule rather than improvised. \u00a77's deployment page leads with the 1% FPR operating point instead."
+  },
+  "bootstrap_replicates": 1000
+}

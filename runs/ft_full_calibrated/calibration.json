@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "accepted",
+  "split": "val",
+  "weights_key": "swa",
+  "tta": true,
+  "views": [
+    "clean",
+    "jpeg_q90",
+    "jpeg_q70",
+    "jpeg_q50",
+    "jpeg_q30",
+    "blur_s0.5",
+    "blur_s1.0",
+    "blur_s2.0",
+    "resize_0.50x",
+    "resize_0.25x",
+    "noise_s0.02",
+    "noise_s0.05",
+    "noise_s0.10",
+    "jitter_20pct",
+    "crop_80pct"
+  ],
+  "temperature": 0.8613269329071045,
+  "threshold": 0.8976333141326904,
+  "threshold_name": "balanced_accuracy",
+  "operating_points": {
+    "fpr_0.01": {
+      "target_fpr": 0.01,
+      "threshold": 0.9490764737129211,
+      "name": "1% FPR validation operating point"
+    },
+    "fpr_0.05": {
+      "target_fpr": 0.05,
+      "threshold": 0.3779403269290924,
+      "name": "5% FPR validation operating point"
+    }
+  },
+  "note": "Compact validation-fitted calibration summary for deployment triage. The submitted checkpoint embeds the calibration record used by aigid.predict; this sidecar supplies the same 1% and 5% FPR policy thresholds to scripts/triage_predictions.py."
+}

@@ -1,0 +1,10 @@
+.venv/
+data/
+runs/*
+!runs/ft_full_calibrated/
+!runs/ft_full_calibrated/*.json
+weights/
+*.pth
+*.pt
+__pycache__/
+*.pyc

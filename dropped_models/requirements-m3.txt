@@ -1,0 +1,9 @@
+# DROPPED 30 Aug 2026 — Branch B / Branch C, not part of the submission.
+# Kept so the code in this directory stays runnable. See the module docstrings.
+#
+#     pip install -r dropped_models/requirements-m3.txt
+#
+# The path below is relative to this file, so it resolves from the repo root.
+
+-r ../requirements.txt
+open_clip_torch>=2.30

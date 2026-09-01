@@ -1,0 +1,24 @@
+{
+  "native": {
+    "n": 47980,
+    "ar_median": 1.0,
+    "se_median": 1024,
+    "se_min": 258,
+    "se_max": 4912,
+    "datasets": [
+      "SID_Set"
+    ],
+    "why": "Full-resolution sources. Pooled across every dataset in it, so cross-dataset geometry is uninformative too."
+  },
+  "lowres32": {
+    "n": 48000,
+    "ar_median": 1.0,
+    "se_median": 32,
+    "se_min": 32,
+    "se_max": 32,
+    "datasets": [
+      "CIFAKE"
+    ],
+    "why": "CIFAKE only. 32x32 in, 32x32 out \u2014 no upsampling, ever. Isolated so it cannot pull the native pool's targets down."
+  }
+}
